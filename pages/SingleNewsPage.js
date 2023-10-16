@@ -1,7 +1,6 @@
 import WebView from 'react-native-webview';
 import React, { useState, useRef } from 'react';
 import { View, ActivityIndicator, Pressable,Text } from 'react-native';
-import Loader from '../component/Loader';
 
 const SingleNewsPage = ({ route }) => {
     const { url } = route.params;
@@ -18,7 +17,9 @@ const SingleNewsPage = ({ route }) => {
             />
 
             {loading && (
-               <Loader/>
+                <View style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center' }}>
+                    <ActivityIndicator size="large" color="#0000ff" />
+                </View>
             )}
         </View>
     );
