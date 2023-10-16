@@ -1,11 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { calcHeight,getFontSizeByWindowWidth } from '../../helper/res';
+import {ENV} from "@env";
 
 function SampleBox() {
   return (
     <View style={styles.adBannerPlaceholder}>
-      <Text style={styles.sampleText}>Sample Box</Text>
+      <Text style={styles.sampleText}>{ENV}</Text>
     </View>
   );
 }
