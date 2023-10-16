@@ -7,20 +7,20 @@ const windowWidth = Dimensions.get('window').width;
 const NewsArticle = ({ article }) => {
   const {
     title,
-    description,
-    url,
-    urlToImage,
+    summary,
+    sourceURL,
+    image
   } = article;
   const navigation = useNavigation()
 
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate("SingleNewsPage", { url })}
+      onPress={() => navigation.navigate("SingleNewsPage", { url: sourceURL })}
       style={styles.container}
     >
-      {urlToImage ? (
+      {image ? (
         <Image
-          source={{ uri: urlToImage }}
+          source={{ uri: image }}
           style={styles.image}
           resizeMode="cover"
         /> 
@@ -33,7 +33,7 @@ const NewsArticle = ({ article }) => {
       }
       <View style={styles.textContainer}>
         <Text style={styles.title}>{title}</Text>
-        <Text style={styles.description}>{description}</Text>
+        <Text style={styles.description}>{summary}</Text>
       </View>
     </TouchableOpacity>
   );
