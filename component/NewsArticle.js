@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 
 const windowWidth = Dimensions.get('window').width;
 
-const NewsArticle = ({ article }) => {
+const NewsArticle = ({ article,index }) => {
   const {
     title,
     summary,
@@ -12,13 +12,13 @@ const NewsArticle = ({ article }) => {
     image
   } = article;
   const navigation = useNavigation()
-
+  const isEvenIndex = index % 2 === 0;
   return (
     <TouchableOpacity
       onPress={() => navigation.navigate("SingleNewsPage", { url: sourceURL })}
       style={styles.container}
     >
-      {image ? (
+      {isEvenIndex && (image ? (
         <Image
           source={{ uri: image }}
           style={styles.image}
@@ -30,11 +30,24 @@ const NewsArticle = ({ article }) => {
       style={styles.image}
       resizeMode='cover'
       />
-      }
+      )}
       <View style={styles.textContainer}>
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.description}>{summary}</Text>
       </View>
+      {!isEvenIndex && (image ? (
+        <Image
+          source={{ uri: image }}
+          style={styles.image}
+          resizeMode="cover"
+        /> 
+      ):
+      <Image
+      source={{uri:"https://awlights.com/wp-content/uploads/sites/31/2017/05/placeholder-news.jpg"}}
+      style={styles.image}
+      resizeMode='cover'
+      />
+      )}
     </TouchableOpacity>
   );
 };

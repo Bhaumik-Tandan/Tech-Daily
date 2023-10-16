@@ -58,13 +58,13 @@ const NewsList = ({ route }) => {
         ref={flatListRef}
         data={articles}
         keyExtractor={(item) => item._id}
-        renderItem={({ item }) => <NewsArticle article={item} />}
+        renderItem={({ item,index }) => <NewsArticle article={item} index={index} />}
         onEndReached={loadMoreData}
         onEndReachedThreshold={0.5}
         ListFooterComponent={isLoadingMore ? <Loader /> : null}
       />
       {loading && !hasMore && (
-        <ActivityIndicator />
+        <Loader />
       )}
     </View>
   );
