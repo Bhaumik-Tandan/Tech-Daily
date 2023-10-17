@@ -3,16 +3,18 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import NewsList from './pages/NewsList';
 import SingleNewsPage from './pages/SingleNewsPage';
 import BannerAd from './component/BannerAd';
+import PAGES from './utils/constants/pages';
+import linking from './utils/linking';
 const Stack = createNativeStackNavigator();
 
 function Navigator() {
 
     return (
-        <NavigationContainer>
-            <Stack.Navigator initialRouteName={"NewsList"} >
+        <NavigationContainer linking={linking}>
+            <Stack.Navigator initialRouteName={PAGES.NEWS_LIST} >
             <Stack.Group>
         <Stack.Screen
-            name={"NewsList"}
+            name={PAGES.NEWS_LIST}
             options={{
                 header: () => (
                     <BannerAd />
@@ -21,7 +23,7 @@ function Navigator() {
             component={NewsList}
         />
         <Stack.Screen
-            name={"SingleNewsPage"}
+            name={PAGES.SINGLE_NEWS_PAGE}
             options={{
                 headerShown: false,
             }}

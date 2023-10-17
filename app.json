@@ -2,6 +2,7 @@
   "expo": {
     "name": "Tech Daily",
     "slug": "js-daily",
+    "scheme": "techDaily",
     "version": "1.4.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

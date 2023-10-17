@@ -1,6 +1,6 @@
 import WebView from 'react-native-webview';
 import React, { useState, useRef } from 'react';
-import { View, ActivityIndicator, Pressable,Text } from 'react-native';
+import { View, ActivityIndicator } from 'react-native';
 
 const SingleNewsPage = ({ route }) => {
     const { url } = route.params;

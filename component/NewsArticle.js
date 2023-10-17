@@ -1,6 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, Text, Image, Dimensions, StyleSheet, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import PAGES from '../utils/constants/pages';
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -15,7 +16,7 @@ const NewsArticle = ({ article,index }) => {
   const isEvenIndex = index % 2 === 0;
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate("SingleNewsPage", { url: sourceURL })}
+      onPress={() => navigation.navigate(PAGES.SINGLE_NEWS_PAGE, { url: sourceURL })}
       style={styles.container}
     >
       {isEvenIndex && (image ? (
