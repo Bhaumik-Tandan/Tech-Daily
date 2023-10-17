@@ -13,6 +13,7 @@ const NewsArticle = ({ article,index }) => {
     image,
     _id
   } = article;
+  const isEven=index%2===0;
   const navigation = useNavigation()
   const ImageContainer=()=>(image && (
     <Image
@@ -29,8 +30,9 @@ const NewsArticle = ({ article,index }) => {
       alignItems:'center',
       position:'relative',
       borderColor: '#ddd', // Add a border for separation
-      borderBottomWidth: 1, // Border width
+      borderBottomWidth: 3, // Border width
       padding: 10, // Add padding for spacing
+      backgroundColor: isEven?'#fff':'#f9f4f4', // White background color for the title
     }}
     >
       <ImageContainer/>
