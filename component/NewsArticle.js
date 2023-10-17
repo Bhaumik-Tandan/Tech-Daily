@@ -16,7 +16,6 @@ const NewsArticle = ({ article,index }) => {
     _id
   } = article;
   const navigation = useNavigation()
-  const isEvenIndex = index % 2 === 0;
   const ImageContainer=()=>(image ? (
     <Image
       source={{ uri: image }}
@@ -41,17 +40,17 @@ const NewsArticle = ({ article,index }) => {
       padding: 10, // Add padding for spacing
     }}
     >
+      <ImageContainer/>
     <TouchableOpacity
       onPress={() => navigation.navigate(PAGES.SINGLE_NEWS_PAGE, { url: sourceURL })}
       style={styles.container}
 
     >
-      {isEvenIndex && <ImageContainer/>}
+
       <View style={styles.textContainer}>
         <Text style={styles.title}>{title}</Text>
-        <Text style={styles.description}>{summary}</Text>
+        <Text style={styles.description}>{summary}</Text>  
       </View>
-      {!isEvenIndex && <ImageContainer/>}
     </TouchableOpacity>
     <TouchableOpacity onPress={async () => {
       await Share.share({
