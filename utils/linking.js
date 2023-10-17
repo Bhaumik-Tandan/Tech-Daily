@@ -27,7 +27,7 @@ const linking = {
             [PAGES.SINGLE_NEWS_PAGE]: {
                 path: DeepLink.SINGLE_NEWS_PAGE,
                 parse: {
-                    url: (url) => `${url}`,
+                    id: (id) => `${id}`,
                 },
             }
         },

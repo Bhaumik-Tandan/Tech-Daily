@@ -1,11 +1,27 @@
 import WebView from 'react-native-webview';
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { View, ActivityIndicator } from 'react-native';
+import { API_URL } from "@env";
 
+
+const apiUrl = API_URL + "/news";
 const SingleNewsPage = ({ route }) => {
-    const { url } = route.params;
+    const { id } = route.params;
     const webViewRef = useRef(null);
     const [loading, setLoading] = useState(true);
+    const [url, setUrl] = useState(route.params.url);
+
+   useEffect(() => {
+    const fetchNewsData = async () => {
+    if(id)
+    {
+      const response = await fetch(`${apiUrl}/${id}`);
+      const data = await response.json();
+      setUrl(data.sourceURL);
+    }
+}
+    fetchNewsData();
+   }, [id]);
 
     
     return (
