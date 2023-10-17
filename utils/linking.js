@@ -1,9 +1,10 @@
 import * as Linking from 'expo-linking';
 import DeepLink from './constants/deeplink';
 import PAGES from './constants/pages';
+import {API_URL} from "@env";
 const prefix = Linking.createURL('/');
 const linking = {
-    prefixes: [prefix, 'techDaily://'],
+    prefixes: [prefix, 'techDaily://',API_URL],
     async getInitialURL() {
         const url = await Linking.getInitialURL();
         if (url != null) {
