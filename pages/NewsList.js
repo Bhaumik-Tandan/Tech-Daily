@@ -44,7 +44,7 @@ const NewsList = ({ route }) => {
   useEffect(() => {
 
     fetchNewsData();
-  }, [page, hasMore, isLoadingMore]);
+  }, []);
 
   const loadMoreData = () => {
     if (!loading) {
