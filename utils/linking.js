@@ -4,7 +4,7 @@ import PAGES from './constants/pages';
 import {API_URL} from "@env";
 const prefix = Linking.createURL('/');
 const linking = {
-    prefixes: [prefix, 'techDaily://',API_URL],
+    prefixes: [prefix, 'tech-daily://',API_URL],
     async getInitialURL() {
         const url = await Linking.getInitialURL();
         if (url != null) {
