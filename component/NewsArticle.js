@@ -3,9 +3,7 @@ import { TouchableOpacity, Text, Image, Dimensions, StyleSheet, View,Share } fro
 import { useNavigation } from '@react-navigation/native';
 import PAGES from '../utils/constants/pages';
 import { AntDesign } from '@expo/vector-icons';
-
-
-const windowWidth = Dimensions.get('window').width;
+import {calcWidth,calcHeight} from '../helper/res';
 
 const NewsArticle = ({ article,index }) => {
   const {
@@ -16,18 +14,13 @@ const NewsArticle = ({ article,index }) => {
     _id
   } = article;
   const navigation = useNavigation()
-  const ImageContainer=()=>(image ? (
+  const ImageContainer=()=>(image && (
     <Image
       source={{ uri: image }}
       style={styles.image}
       resizeMode="cover"
     /> 
-  ):
-  <Image
-  source={{uri:"https://awlights.com/wp-content/uploads/sites/31/2017/05/placeholder-news.jpg"}}
-  style={styles.image}
-  resizeMode='cover'
-  />);
+  ));
   return (
     <View
     style={{
@@ -72,9 +65,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    width: windowWidth / 3, // Adjust the width to your preference
-    height: windowWidth / 4, // Adjust the height to your preference
-    marginRight: 10, // Add margin for spacing
+    width: calcWidth(90),
+    height: calcHeight(20),
+    borderRadius: 10,
+    marginRight: 10,
   },
   textContainer: {
     flex: 1,
