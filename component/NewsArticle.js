@@ -32,7 +32,7 @@ const NewsArticle = ({ article,index }) => {
       borderColor: '#ddd', // Add a border for separation
       borderBottomWidth: 3, // Border width
       padding: 10, // Add padding for spacing
-      backgroundColor: isEven?'#fff':'#f9f4f4', // White background color for the title
+      backgroundColor: isEven?'#e7eff6':'#faf0e6', // White background color for the title
     }}
     >
       <ImageContainer/>
