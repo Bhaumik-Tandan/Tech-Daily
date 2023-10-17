@@ -47,15 +47,23 @@ const NewsArticle = ({ article,index }) => {
         <Text style={styles.description}>{summary}</Text>  
       </View>
     </TouchableOpacity>
-    <TouchableOpacity onPress={async () => {
+  
+      <View
+      style={{
+        marginLeft:"auto",
+      }}
+      >
+    <TouchableOpacity  
+    onPress={async () => {
       await Share.share({
         message:
           `Check out this news: https://api-tech-daily.cyclic.app/link?redirect=news?id=${_id}`,
       })
 }}>
-  <AntDesign name="sharealt" size={30} color="rgba(0, 0, 0, 0.5)" />
+  <AntDesign name="sharealt" size={20} color="#f37736" />
 
     </TouchableOpacity>
+    </View>
     </View>
   );
 };
