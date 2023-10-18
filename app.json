@@ -37,6 +37,7 @@
     "owner": "js-daily"
   },
   "react-native-google-mobile-ads":{
-    "android_app_id": "ca-app-pub-5499479031752321~3339721076"
+    "android_app_id": "ca-app-pub-5499479031752321~3339721076",
+    "ios_app_id": "ca-app-pub-5499479031752321~5492015773"
 }
 }
