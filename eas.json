@@ -59,7 +59,7 @@
               "key": "Invalidate"
           },
           "ios": {
-              "cocoapods": "1.11.2",
+              "cocoapods": "1.13.0",
               "enterpriseProvisioning": "universal"
           },
           "env": {
