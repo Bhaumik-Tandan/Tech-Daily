@@ -16,7 +16,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.jsdaily.jsdaily"
     },
     "android": {
       "adaptiveIcon": {
@@ -36,8 +37,8 @@
     },
     "owner": "js-daily"
   },
-  "react-native-google-mobile-ads":{
+  "react-native-google-mobile-ads": {
     "android_app_id": "ca-app-pub-5499479031752321~3339721076",
     "ios_app_id": "ca-app-pub-5499479031752321~5492015773"
-}
+  }
 }
