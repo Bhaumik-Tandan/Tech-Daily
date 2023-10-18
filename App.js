@@ -9,7 +9,7 @@ export default function App() {
   return (
     <SafeAreaProvider
       style={{
-        paddingTop: Platform.OS === 'android' ? Constants.statusBarHeight : 0,
+        paddingTop:Constants.statusBarHeight
       }}
     >
       <StatusBar style="auto" />
