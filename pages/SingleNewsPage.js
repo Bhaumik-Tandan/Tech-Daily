@@ -23,6 +23,18 @@ const SingleNewsPage = ({ route }) => {
     fetchNewsData();
    }, [id]);
 
+   useEffect(() => {
+    if (webViewRef.current) {
+      webViewRef.current.injectJavaScript(`
+        // Example: Hide elements with a specific class that are typically ads
+        var ads = document.getElementsByClassName("ad-class-name");
+        for (var i = 0; i < ads.length; i++) {
+          ads[i].style.display = "none";
+        }
+      `);
+    }
+  }, [url]);
+
     
     return (
         <View style={{ flex: 1 }}>

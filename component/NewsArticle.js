@@ -35,9 +35,9 @@ const NewsArticle = ({ article,index }) => {
       backgroundColor: isEven?'#e7eff6':'#faf0e6', // White background color for the title
     }}
     >
+    <TouchableOpacity onPress={() => navigation.navigate(PAGES.SINGLE_NEWS_PAGE, { url: sourceURL })}>
       <ImageContainer/>
-    <TouchableOpacity
-      onPress={() => navigation.navigate(PAGES.SINGLE_NEWS_PAGE, { url: sourceURL })}
+    <View
       style={styles.container}
 
     >
@@ -46,7 +46,7 @@ const NewsArticle = ({ article,index }) => {
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.description}>{summary}</Text>  
       </View>
-    </TouchableOpacity>
+    </View>
   
       <View
       style={{
@@ -64,6 +64,7 @@ const NewsArticle = ({ article,index }) => {
 
     </TouchableOpacity>
     </View>
+    </TouchableOpacity>
     </View>
   );
 };
