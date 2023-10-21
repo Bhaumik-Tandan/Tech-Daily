@@ -27,8 +27,6 @@ export default function App() {
       const response = await fetch(`${apiUrl}?page=${page}`);
       const data = await response.json();
 
-      console.log("Fetched page", page, "with", data.length, "articles.");
-
       if (data.length === 0) {
         setHasMore(false); // No more articles to load
       } else {
@@ -87,9 +85,11 @@ const styles = StyleSheet.create({
   newsTitle: {
     fontSize: getFontSizeByWindowWidth(13),
     fontWeight: 'bold',
+    lineHeight: calcHeight(3),
   },
   newsSummary: {
     fontSize: getFontSizeByWindowWidth(12),
     marginVertical: 10,
+    lineHeight: calcHeight(3)
   },
 });
