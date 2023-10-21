@@ -6,6 +6,7 @@ import Constants from 'expo-constants';
 import { calcHeight, calcWidth,getFontSizeByWindowWidth } from '../helper/res';
 import * as WebBrowser from 'expo-web-browser';
 import BannerAd from '../component/BannerAd';
+import { AntDesign } from '@expo/vector-icons';
 
 const apiUrl = API_URL + "/news";
 const window = Dimensions.get('window');
@@ -88,7 +89,13 @@ export default function NewsList() {
             bottom: 0,
           }}>
             {
-              !showBanner && <BannerAd setShowBanner={setShowBanner} />
+              !showBanner && 
+              <View style={styles.bottomMenu}>
+              <Pressable>
+                <AntDesign name="sharealt" size={calcHeight(3)} color="#f37736" />
+                <Text>Share</Text>
+                </Pressable>
+                </View>
             }
             </View>
         </View>
@@ -135,5 +142,13 @@ const styles = StyleSheet.create({
     bottom: 0, 
     position: 'absolute', 
     width: '100%',
-  }
+  },
+  bottomMenu: {
+    paddingVertical: calcWidth(3),
+    flexDirection: 'row',
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+    borderTopWidth: 1,
+    borderTopColor: '#e0e0e0',
+}
 });
