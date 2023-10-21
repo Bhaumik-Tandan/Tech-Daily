@@ -62,6 +62,7 @@ const NewsList = ({ route }) => {
         onEndReached={loadMoreData}
         onEndReachedThreshold={0.5}
         ListFooterComponent={isLoadingMore ? <Loader /> : null}
+        pagingEnabled={true}
       />
       {loading && !hasMore && (
         <Loader />

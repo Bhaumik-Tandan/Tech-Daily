@@ -17,7 +17,8 @@ function Navigator() {
             name={PAGES.NEWS_LIST}
             options={{
                 header: () => (
-                    <BannerAd />
+                    // <BannerAd />
+                    null
                 ),
             }}
             component={NewsList}

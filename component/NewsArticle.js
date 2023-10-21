@@ -3,7 +3,7 @@ import { TouchableOpacity, Text, Image, Dimensions, StyleSheet, View,Share } fro
 import { useNavigation } from '@react-navigation/native';
 import PAGES from '../utils/constants/pages';
 import { AntDesign } from '@expo/vector-icons';
-import {calcWidth,calcHeight} from '../helper/res';
+import {calcWidth,calcHeight,getFontSizeByWindowWidth} from '../helper/res';
 
 const NewsArticle = ({ article,index }) => {
   const {
@@ -32,7 +32,7 @@ const NewsArticle = ({ article,index }) => {
       borderColor: '#ddd', // Add a border for separation
       borderBottomWidth: 3, // Border width
       padding: 10, // Add padding for spacing
-      backgroundColor: isEven?'#e7eff6':'#faf0e6', // White background color for the title
+      backgroundColor: isEven?'#e7eff6':'#faf0e6', // White background color for the title,
     }}
     >
     <TouchableOpacity onPress={() => navigation.navigate(PAGES.SINGLE_NEWS_PAGE, { url: sourceURL })}>
@@ -76,21 +76,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    width: calcWidth(90),
-    height: calcHeight(20),
-    borderRadius: 10,
-    marginRight: 10,
+    width: calcWidth(100),
+    height: calcHeight(30),
   },
   textContainer: {
     flex: 1,
     flexDirection: 'column',
+    marginHorizontal: calcWidth(3),
+    marginTop: calcHeight(1),
   },
   title: {
     fontSize: 18, // Adjust the font size to your preference
     fontWeight: 'bold',
   },
   description: {
-    fontSize: 14, // Adjust the font size to your preference
+    fontSize: getFontSizeByWindowWidth(18), // Adjust the font size to your preference
     color: '#666', // Adjust the color to your preference
     marginTop: 5, // Add margin for spacing
   }
