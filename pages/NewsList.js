@@ -1,19 +1,22 @@
-import { View, Text, Image, FlatList, StyleSheet, Dimensions } from 'react-native';
-import React, { useState, useEffect, useRef } from 'react';
+import { View, Text, Image, FlatList, StyleSheet, Dimensions,TouchableOpacity,Pressable } from 'react-native';
+import React, { useState, useEffect } from 'react';
 import { API_URL } from "@env";
 import Loader from '../component/Loader';
 import Constants from 'expo-constants';
 import { calcHeight, calcWidth,getFontSizeByWindowWidth } from '../helper/res';
+import * as WebBrowser from 'expo-web-browser';
+import BannerAd from '../component/BannerAd';
 
 const apiUrl = API_URL + "/news";
 const window = Dimensions.get('window');
 
 
-export default function App() {
+export default function NewsList() {
     const [articles, setArticles] = useState([]);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [isLoadingMore, setIsLoadingMore] = useState(false); // New loading flag
+  const [showBanner, setShowBanner] = useState(false);
 
 
   const fetchNewsData = async () => {
@@ -50,11 +53,44 @@ export default function App() {
       data={articles}
       renderItem={({ item }) => (
         <View style={styles.newsCard}>
+          <View style={{
+            zIndex: 1,
+            position: 'absolute',
+            width: '100%',
+          }}>
+          {
+            !showBanner && <BannerAd setShowBanner={setShowBanner} />
+          }
+          </View>
+          <Pressable onPress={
+            ()=>{
+              setShowBanner((prev)=>!prev);
+            }
+          }>
           <Image source={{ uri: item.image }} style={styles.newsImage} />
           <View style={{margin: calcWidth(3)}}>
           <Text style={styles.newsTitle}>{item.title}</Text>
           <Text style={styles.newsSummary}>{item.summary}</Text>
           </View>
+          </Pressable>
+            <TouchableOpacity style={styles.footer}
+      onPress={() => {
+        WebBrowser.openBrowserAsync(
+          encodeURI(item.sourceURL),
+      );
+      }}>
+        <Text style={{ color: 'white' }}>Tap to View Know More</Text>
+            </TouchableOpacity>
+            <View style={{
+            zIndex: 1,
+            position: 'absolute',
+            width: '100%',
+            bottom: 0,
+          }}>
+            {
+              !showBanner && <BannerAd setShowBanner={setShowBanner} />
+            }
+            </View>
         </View>
       )}
       keyExtractor={(item) => item._id}
@@ -92,4 +128,12 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     lineHeight: calcHeight(3)
   },
+  footer:{
+    backgroundColor: 'rgba(0, 0, 0, 0.7)', 
+    padding: calcHeight(3),
+    alignItems: 'center',
+    bottom: 0, 
+    position: 'absolute', 
+    width: '100%',
+  }
 });

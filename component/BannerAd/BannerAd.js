@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%', // Adjust the width as needed
-    height: calcHeight(10),   // Adjust the height as needed
+    height: calcHeight(9),   // Adjust the height as needed
   },
 });
 
