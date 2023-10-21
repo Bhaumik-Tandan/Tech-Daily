@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { API_URL } from "@env";
 import Loader from '../component/Loader';
 import Constants from 'expo-constants';
+import { calcHeight, calcWidth,getFontSizeByWindowWidth } from '../helper/res';
 
 const apiUrl = API_URL + "/news";
 const window = Dimensions.get('window');
@@ -52,8 +53,10 @@ export default function App() {
       renderItem={({ item }) => (
         <View style={styles.newsCard}>
           <Image source={{ uri: item.image }} style={styles.newsImage} />
+          <View style={{margin: calcWidth(3)}}>
           <Text style={styles.newsTitle}>{item.title}</Text>
           <Text style={styles.newsSummary}>{item.summary}</Text>
+          </View>
         </View>
       )}
       keyExtractor={(item) => item._id}
@@ -74,24 +77,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#f2f2f2',
   },
   newsCard: {
-    height: window.height-Constants.statusBarHeight, // Occupies the entire screen's height
+    height: window.height-Constants.statusBarHeight, 
     backgroundColor: '#fff',
-    borderWidth: 1,
-    borderColor: '#ddd',
-    padding: 10,
-    borderRadius: 5,
   },
   newsImage: {
     width: '100%',
-    height: 200, // Adjust the height as needed
+    height: calcHeight(30),
   },
   newsTitle: {
-    fontSize: 24,
+    fontSize: getFontSizeByWindowWidth(13),
     fontWeight: 'bold',
-    marginVertical: 10,
   },
   newsSummary: {
-    fontSize: 16,
+    fontSize: getFontSizeByWindowWidth(12),
     marginVertical: 10,
   },
 });
