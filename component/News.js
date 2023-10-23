@@ -2,14 +2,12 @@ import Constants from 'expo-constants';
 import { calcHeight, calcWidth,getFontSizeByWindowWidth } from '../helper/res';
 import * as WebBrowser from 'expo-web-browser';
 import BannerAd from '../component/BannerAd';
-import { AntDesign } from '@expo/vector-icons';
-import getDomainName from '../helper/getDomain';
-import { MaterialIcons } from '@expo/vector-icons'; 
-import { View, Text, Image, StyleSheet, Dimensions,TouchableOpacity,Pressable,Share } from 'react-native';
+import getDomainName from '../helper/getDomain'; 
+import { View, Text, Image, StyleSheet, TouchableOpacity,Pressable,Share } from 'react-native';
 import { useState } from 'react';
+import NewsMenu from './NewMenu';
 
 
-const window = Dimensions.get('window');
 function News({ item }) {
     const [showBanner, setShowBanner] = useState(false);
     return (
@@ -51,28 +49,7 @@ function News({ item }) {
           }}>
             {
               !showBanner && 
-              <View style={styles.bottomMenu}>
-              <Pressable onPress={
-             ()=>{
-              Share.share({
-                message: `Check out this news: https://api-tech-daily.cyclic.app/link?redirect=news?id=${item._id}`,
-              });
-            }
-              }>
-                <AntDesign name="sharealt" size={calcHeight(3)} color="#8cbed6" />
-                <Text>Share</Text>
-                </Pressable>
-                <Pressable onPress={
-             ()=>{
-              Share.share({
-                message: `Check out this news: https://api-tech-daily.cyclic.app/link?redirect=news?id=${item._id}`,
-              });
-            }
-              }>
-                <MaterialIcons name="contact-mail" size={calcHeight(3)} color="black" />
-                <Text>Share</Text>
-                </Pressable>
-                </View>
+              <NewsMenu sourceUrl={item.sourceURL} />
             }
             </View>
         </View>
@@ -83,7 +60,7 @@ export default News;
 
 const styles = StyleSheet.create({
     newsCard: {
-        height: window.height - Constants.statusBarHeight,
+        height: calcHeight(100) - Constants.statusBarHeight,
         backgroundColor: '#fff',
       },
       newsImage: {
