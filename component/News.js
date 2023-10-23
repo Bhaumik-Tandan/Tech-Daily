@@ -6,13 +6,18 @@ import getDomainName from '../helper/getDomain';
 import { View, Text, Image, StyleSheet, TouchableOpacity,Pressable,Share } from 'react-native';
 import { useState } from 'react';
 import NewsMenu from './NewMenu';
+import { useDimensions } from '../ScreenDimension';
 
 
 function News({ item}) {
     const [showBanner, setShowBanner] = useState(true);
+    const { height } = useDimensions();
     
     return (
-        <View style={styles.newsCard}>
+        <View style={{
+          height: height,
+          backgroundColor: '#fff',
+        }}>
           <View style={{
             zIndex: 1,
             position: 'absolute',
@@ -61,7 +66,7 @@ export default News;
 
 const styles = StyleSheet.create({
     newsCard: {
-        height: calcHeight(100) - Constants.statusBarHeight,
+        height: 899,
         backgroundColor: '#fff',
       },
       newsImage: {
