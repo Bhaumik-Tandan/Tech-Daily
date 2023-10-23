@@ -8,8 +8,9 @@ import { useState } from 'react';
 import NewsMenu from './NewMenu';
 
 
-function News({ item }) {
-    const [showBanner, setShowBanner] = useState(false);
+function News({ item}) {
+    const [showBanner, setShowBanner] = useState(true);
+    
     return (
         <View style={styles.newsCard}>
           <View style={{
