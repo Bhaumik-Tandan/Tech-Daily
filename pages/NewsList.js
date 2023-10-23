@@ -7,6 +7,7 @@ import { calcHeight, calcWidth,getFontSizeByWindowWidth } from '../helper/res';
 import * as WebBrowser from 'expo-web-browser';
 import BannerAd from '../component/BannerAd';
 import { AntDesign } from '@expo/vector-icons';
+import getDomainName from '../helper/getDomain';
 
 const apiUrl = API_URL + "/news";
 const window = Dimensions.get('window');
@@ -72,6 +73,7 @@ export default function NewsList() {
           <View style={{margin: calcWidth(3)}}>
           <Text style={styles.newsTitle}>{item.title}</Text>
           <Text style={styles.newsSummary}>{item.summary}</Text>
+          <Text style={styles.newsSource}>Source: {item.source || getDomainName(item.sourceURL) }</Text>
           </View>
           </Pressable>
             <TouchableOpacity style={styles.footer}
@@ -118,7 +120,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f2f2f2',
   },
   newsCard: {
-    height: window.height-Constants.statusBarHeight, 
+    height: window.height - Constants.statusBarHeight,
     backgroundColor: '#fff',
   },
   newsImage: {
@@ -133,14 +135,18 @@ const styles = StyleSheet.create({
   newsSummary: {
     fontSize: getFontSizeByWindowWidth(12),
     marginVertical: 10,
-    lineHeight: calcHeight(3)
+    lineHeight: calcHeight(3),
   },
-  footer:{
-    backgroundColor: 'rgba(0, 0, 0, 0.7)', 
+  newsSource: {
+    fontSize: getFontSizeByWindowWidth(10), // Adjust the font size as needed
+    color: 'gray', // You can change the color to suit your app's design
+  },
+  footer: {
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
     padding: calcHeight(3),
     alignItems: 'center',
-    bottom: 0, 
-    position: 'absolute', 
+    bottom: 0,
+    position: 'absolute',
     width: '100%',
   },
   bottomMenu: {
@@ -150,5 +156,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderTopWidth: 1,
     borderTopColor: '#e0e0e0',
-}
+  },
 });
+
