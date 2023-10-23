@@ -8,6 +8,7 @@ import * as WebBrowser from 'expo-web-browser';
 import BannerAd from '../component/BannerAd';
 import { AntDesign } from '@expo/vector-icons';
 import getDomainName from '../helper/getDomain';
+import { MaterialIcons } from '@expo/vector-icons'; 
 
 const apiUrl = API_URL + "/news";
 const window = Dimensions.get('window');
@@ -100,7 +101,17 @@ export default function NewsList() {
               });
             }
               }>
-                <AntDesign name="sharealt" size={calcHeight(3)} color="#f37736" />
+                <AntDesign name="sharealt" size={calcHeight(3)} color="#8cbed6" />
+                <Text>Share</Text>
+                </Pressable>
+                <Pressable onPress={
+             ()=>{
+              Share.share({
+                message: `Check out this news: https://api-tech-daily.cyclic.app/link?redirect=news?id=${item._id}`,
+              });
+            }
+              }>
+                <MaterialIcons name="contact-mail" size={calcHeight(3)} color="black" />
                 <Text>Share</Text>
                 </Pressable>
                 </View>
