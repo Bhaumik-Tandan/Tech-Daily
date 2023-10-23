@@ -1,4 +1,4 @@
-import { View, Text, Image, FlatList, StyleSheet, Dimensions,TouchableOpacity,Pressable } from 'react-native';
+import { View, Text, Image, FlatList, StyleSheet, Dimensions,TouchableOpacity,Pressable,Share } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { API_URL } from "@env";
 import Loader from '../component/Loader';
@@ -93,7 +93,13 @@ export default function NewsList() {
             {
               !showBanner && 
               <View style={styles.bottomMenu}>
-              <Pressable>
+              <Pressable onPress={
+             ()=>{
+              Share.share({
+                message: `Check out this news: https://api-tech-daily.cyclic.app/link?redirect=news?id=${item._id}`,
+              });
+            }
+              }>
                 <AntDesign name="sharealt" size={calcHeight(3)} color="#f37736" />
                 <Text>Share</Text>
                 </Pressable>
