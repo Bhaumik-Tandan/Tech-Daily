@@ -1,7 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import NewsList from './pages/NewsList';
-import SingleNewsPage from './pages/SingleNewsPage';
 import PAGES from './utils/constants/pages';
 import linking from './utils/linking';
 const Stack = createNativeStackNavigator();
