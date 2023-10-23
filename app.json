@@ -3,7 +3,7 @@
     "name": "Tech Daily",
     "slug": "js-daily",
     "scheme": "tech-daily",
-    "version": "1.5.3",
+    "version": "1.6.3",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -18,7 +18,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.jsdaily.jsdaily",
-      "buildNumber": "3"
+      "buildNumber": "10"
     },
     "android": {
       "adaptiveIcon": {
@@ -26,7 +26,7 @@
         "backgroundColor": "#ffffff"
       },
       "package": "com.jsdaily.jsdaily",
-      "versionCode": 9
+      "versionCode": 10
     },
     "web": {
       "favicon": "./assets/favicon.png"
