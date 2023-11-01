@@ -16,7 +16,7 @@
           },
           "env": {
               "ENV": "development",
-              "API_URL": "https://api-tech-daily.cyclic.app"
+              "API_URL": "https://news-daily.cyclic.app"
           }
       },
       "staging": {
@@ -31,7 +31,7 @@
           },
           "env": {
               "ENV": "staging",
-              "API_URL": "https://api-tech-daily.cyclic.app"
+              "API_URL": "https://news-daily.cyclic.app"
           }
       },
       "productionTest": {
@@ -46,7 +46,7 @@
           },
           "env": {
               "ENV": "productionTest",
-              "API_URL": "https://api-tech-daily.cyclic.app"
+              "API_URL": "https://news-daily.cyclic.app"
           }
       },
       "production": {
@@ -64,7 +64,7 @@
           },
           "env": {
               "ENV": "production",
-              "API_URL": "https://api-tech-daily.cyclic.app"
+              "API_URL": "https://news-daily.cyclic.app"
           }
       }
   },

@@ -1,11 +1,11 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import NewsList from './pages/NewsList';
-import PAGES from './utils/constants/pages';
-import linking from './utils/linking';
+import NewsList from '../pages/NewsList';
+import PAGES from '../utils/constants/pages';
+import linking from '../utils/linking';
 const Stack = createNativeStackNavigator();
 
-function Navigator() {
+function RootNavigator() {
 
     return (
         <NavigationContainer linking={linking}>
@@ -26,4 +26,4 @@ function Navigator() {
     );
 }
 
-export default Navigator;
+export default RootNavigator;

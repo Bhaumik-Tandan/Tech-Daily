@@ -1,15 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import { Platform } from 'react-native';
-import Navigator from './Navigator';
-import Constants from 'expo-constants';
+import Navigator from './navigator/RootNavigator';
 import {ScreenDimensionsProvider} from './ScreenDimension';
 import { useState } from 'react';
 
 
 export default function App() {
-  const [height, setHeight] = useState();
   return (
-    <ScreenDimensionsProvider onDimensions={layout => setHeight(layout.height)} >
+    <ScreenDimensionsProvider>
       <StatusBar style="auto" />
       <Navigator/>
     </ScreenDimensionsProvider>
