@@ -13,6 +13,7 @@
     "@react-navigation/native": "^6.1.8",
     "@react-navigation/native-stack": "^6.9.14",
     "expo": "~49.0.13",
+    "expo-clipboard": "^4.5.0",
     "expo-linking": "~5.0.2",
     "expo-status-bar": "~1.6.0",
     "expo-web-browser": "~12.3.2",

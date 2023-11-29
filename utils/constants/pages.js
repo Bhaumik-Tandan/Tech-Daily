@@ -3,6 +3,7 @@ const PAGES={
     NEWS: 'News',
     MENU:"Menu",
     SUMMARIZER:"Summarizer",
+    SUMMARY:"Summary"
 }
 
 export default PAGES;
