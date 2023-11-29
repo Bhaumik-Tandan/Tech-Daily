@@ -1,17 +1,18 @@
 import Constants from 'expo-constants';
 import { calcHeight, calcWidth,getFontSizeByWindowWidth } from '../helper/res';
-import * as WebBrowser from 'expo-web-browser';
 import BannerAd from '../component/BannerAd';
 import getDomainName from '../helper/getDomain'; 
 import { View, Text, Image, StyleSheet, TouchableOpacity,Pressable,Share } from 'react-native';
 import { useState } from 'react';
 import NewsMenu from './NewMenu';
 import { useDimensions } from '../ScreenDimension';
-
+import { useNavigation } from '@react-navigation/native';
+import PAGES from "../utils/constants/pages";
 
 function News({ item}) {
     const [showBanner, setShowBanner] = useState(true);
     const { height } = useDimensions();
+    const navigation = useNavigation();
     
     return (
         <View style={{
@@ -41,9 +42,7 @@ function News({ item}) {
           </Pressable>
             <TouchableOpacity style={styles.footer}
       onPress={() => {
-        WebBrowser.openBrowserAsync(
-          encodeURI(item.sourceURL),
-      );
+        navigation.navigate(PAGES.NEWS,{newsId:item._id})
       }}>
         <Text style={{ color: 'white' }}>Tap to View Know More</Text>
             </TouchableOpacity>

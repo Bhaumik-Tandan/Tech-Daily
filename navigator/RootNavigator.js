@@ -3,13 +3,14 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import NewsList from '../pages/NewsList';
 import PAGES from '../utils/constants/pages';
 import linking from '../utils/linking';
+import News from '../pages/News';
 const Stack = createNativeStackNavigator();
 
 function RootNavigator() {
 
     return (
         <NavigationContainer linking={linking}>
-            <Stack.Navigator initialRouteName={PAGES.NEWS_LIST} >
+            <Stack.Navigator>
             <Stack.Group>
         <Stack.Screen
             name={PAGES.NEWS_LIST}
@@ -20,6 +21,10 @@ function RootNavigator() {
             }}
             component={NewsList}
         />
+        <Stack.Screen
+                name={PAGES.NEWS}
+                component={News}
+            />
     </Stack.Group>
             </Stack.Navigator>
         </NavigationContainer>
