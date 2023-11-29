@@ -5,6 +5,7 @@ import PAGES from '../utils/constants/pages';
 import linking from '../utils/linking';
 import News from '../pages/News';
 import Menu from '../pages/Menu';
+import Summarizer from '../pages/Summarizer';
 const Stack = createNativeStackNavigator();
 
 function RootNavigator() {
@@ -32,7 +33,7 @@ function RootNavigator() {
             />
             <Stack.Screen
                 name={PAGES.SUMMARIZER}
-                component={Menu}
+                component={Summarizer}
             />
     </Stack.Group>
 
