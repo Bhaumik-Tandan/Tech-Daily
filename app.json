@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Tech Daily",
-    "slug": "js-daily",
+    "slug": "tech-daily",
     "scheme": "tech-daily",
     "version": "1.7.0",
     "orientation": "portrait",
@@ -17,7 +17,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.jsdaily.jsdaily",
+      "bundleIdentifier": "com.techdaily.techdaily",
       "buildNumber": "12"
     },
     "android": {
@@ -25,7 +25,7 @@
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.jsdaily.jsdaily",
+      "package": "com.techdaily.techdaily",
       "versionCode": 12
     },
     "web": {
@@ -33,7 +33,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "338fd039-ea9a-4071-8d45-487d413312a2"
+        "projectId": "df6de970-254e-4199-8c58-bd45ed4ee9c1"
       }
     },
     "owner": "js-daily"
