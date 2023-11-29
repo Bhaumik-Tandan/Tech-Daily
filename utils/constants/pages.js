@@ -1,6 +1,8 @@
 const PAGES={
     NEWS_LIST: 'NewsList',
-    NEWS: 'News'
+    NEWS: 'News',
+    MENU:"Menu",
+    SUMMARIZER:"Summarizer",
 }
 
 export default PAGES;

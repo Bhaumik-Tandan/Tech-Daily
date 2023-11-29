@@ -4,6 +4,7 @@ import NewsList from '../pages/NewsList';
 import PAGES from '../utils/constants/pages';
 import linking from '../utils/linking';
 import News from '../pages/News';
+import Menu from '../pages/Menu';
 const Stack = createNativeStackNavigator();
 
 function RootNavigator() {
@@ -25,7 +26,16 @@ function RootNavigator() {
                 name={PAGES.NEWS}
                 component={News}
             />
+             <Stack.Screen
+                name={PAGES.MENU}
+                component={Menu}
+            />
+            <Stack.Screen
+                name={PAGES.SUMMARIZER}
+                component={Menu}
+            />
     </Stack.Group>
+
             </Stack.Navigator>
         </NavigationContainer>
     );

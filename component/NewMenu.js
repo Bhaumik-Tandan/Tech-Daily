@@ -2,19 +2,12 @@ import React, { useState } from "react";
 import { StyleSheet, Pressable, View, Text, Share, Modal } from "react-native";
 import { calcHeight, calcWidth } from "../helper/res";
 import { AntDesign } from '@expo/vector-icons';
-import { MaterialIcons } from '@expo/vector-icons';
+import { Entypo  } from '@expo/vector-icons';
+import { useNavigation } from "@react-navigation/native";
+import PAGES from "../utils/constants/pages";
 
 function NewsMenu({ sourceUrl }) {
-    const [isContactModalVisible, setContactModalVisible] = useState(false);
-
-    const openContactModal = () => {
-        setContactModalVisible(true);
-    };
-
-    const closeContactModal = () => {
-        setContactModalVisible(false);
-    };
-
+    const navigation = useNavigation();
     return (
         <View style={styles.bottomMenu}>
             <Pressable style={styles.pressable} onPress={() => {
@@ -26,25 +19,13 @@ function NewsMenu({ sourceUrl }) {
                 <Text>Share</Text>
             </Pressable>
 
-            <Pressable style={styles.pressable} onPress={openContactModal}>
-                <MaterialIcons name="contact-mail" size={calcHeight(3)} color="black" />
-                <Text>Contact Us</Text>
+            <Pressable style={styles.pressable} onPress={()=>{
+                navigation.navigate(PAGES.MENU);
+            }}>
+                <Entypo name="menu" size={calcHeight(3)} color="black" />
+                <Text>Menu</Text>
             </Pressable>
 
-            <Modal
-                visible={isContactModalVisible}
-                animationType="slide"
-                transparent={true}
-                onRequestClose={closeContactModal}
-            >
-                <View style={styles.contactModal}>
-                    <Text style={styles.contactHeaderText}>Contact Us</Text>
-                    <Text style={styles.contactEmail}>Email: pivot.it.bhaumik@gmail.com</Text>
-                    <Pressable style={styles.closeButton} onPress={closeContactModal}>
-                        <Text style={styles.closeButtonText}>Close</Text>
-                    </Pressable>
-                </View>
-            </Modal>
         </View>
     );
 }
