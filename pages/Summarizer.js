@@ -7,6 +7,7 @@ import { ClipboardPasteButton } from "expo-clipboard";
 import * as Clipboard from "expo-clipboard";
 import PAGES from '../utils/constants/pages';
 import getClipBoard from '../helper/getClipBoard';
+import { FontAwesome } from '@expo/vector-icons';
 
 const apiUrl = API_URL + "/news/summarize";
 const COPY_BUTTON_BACKGROUND_COLOR = "#F8F8F8";
